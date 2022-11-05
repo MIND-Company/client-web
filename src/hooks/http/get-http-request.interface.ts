@@ -1,5 +1,5 @@
-import { IBaseHttpRequest } from "./base-http-request.interface";
+import type { IBaseHttpRequest } from './base-http-request.interface';
 
-export interface IGetHttpRequest extends IBaseHttpRequest {
-  readonly method: "GET";
-}
+export type IGetHttpRequest = {
+  readonly method: 'GET';
+} & IBaseHttpRequest;

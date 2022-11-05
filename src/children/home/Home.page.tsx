@@ -1,8 +1,8 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { Loader } from '@ermolaev/mind-ui';
 
 export const HomePage = () => {
   const location = useLocation();
-  console.log(location.state);
-  return <span>Заглушка</span>;
+  return <Loader />;
 };

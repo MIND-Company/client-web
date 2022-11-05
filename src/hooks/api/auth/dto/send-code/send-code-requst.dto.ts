@@ -1,4 +1,4 @@
 export type SendConfirmationCodeRequestDto = {
-	method: 'SMS';
-	target: string;
+  method: 'SMS';
+  target: string;
 };

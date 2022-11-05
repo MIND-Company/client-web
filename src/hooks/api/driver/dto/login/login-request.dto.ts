@@ -1,4 +1,4 @@
-export interface LoginRequestDto {
+export type LoginRequestDto = {
   phone: string;
   confirmationCode: string;
-}
+};
