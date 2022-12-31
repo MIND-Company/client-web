@@ -6,6 +6,8 @@ import { RegistrationContainer } from './children/auth/registration/pages/Regist
 import { HomePage } from './children/cabinet/home/pages/Home.page';
 import { CabinetLayout } from './children/cabinet/layouts/Cabinet.layout';
 import { HistoryPage } from './children/cabinet/history/pages/History.page';
+import { HomeContainer } from './children/cabinet/home/pages/Home.container';
+import { HistoryContainer } from './children/cabinet/history/pages/History.container';
 
 function App() {
   return (
@@ -16,8 +18,8 @@ function App() {
           <Route path="registration" element={<RegistrationContainer />} />
         </Route>
         <Route path="/cabinet" element={<CabinetLayout />}>
-          <Route path="home" element={<HomePage />}></Route>
-          <Route path="history" element={<HistoryPage />}></Route>
+          <Route path="home" element={<HomeContainer />}></Route>
+          <Route path="history" element={<HistoryContainer />}></Route>
         </Route>
         <Route path="*" element={<Navigate to="/auth/login" />} />
       </Routes>

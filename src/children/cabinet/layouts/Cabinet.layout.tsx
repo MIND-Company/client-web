@@ -9,7 +9,12 @@ export const CabinetLayout = () => {
   return (
     <>
       <Navbar>
-        <NavbarElement title={'Главная'} onClick={() => {}} />
+        <NavbarElement
+          title={'Главная'}
+          onClick={() => {
+            navigate('/cabinet/home');
+          }}
+        />
         <NavbarElement
           title={'История'}
           onClick={() => {

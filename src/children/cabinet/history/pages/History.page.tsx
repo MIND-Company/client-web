@@ -1,15 +1,29 @@
-import React from 'react';
-import { useHttp } from '@ermolaev/mind-ui';
+import React, { FC } from 'react';
+import { ParkingWidget, useHttp } from '@ermolaev/mind-ui';
+import { IParking } from '../../models/parking.model';
+import classes from './History.page.styles.module.css';
 
-export const HistoryPage = () => {
-  const http = useHttp();
+export const HistoryPage: FC<{ parkings: IParking[] }> = ({ parkings }) => {
+  return (
+    <div className={classes.wrapper}>
+      {parkings.map((parking: IParking, index) => {
+        if (!parking.isFinished) {
+          return;
+        }
 
-  const getParkings = async () => {
-    const response = await http({ method: 'GET', url: '/api/parkings/' });
-    console.log(response);
-  };
-
-  getParkings();
-
-  return <div>Hello</div>;
+        return (
+          <div className={classes.element} key={index}>
+            <ParkingWidget
+              size={'long'}
+              price={parking.price}
+              parkingName={parking.parkName}
+              id={parking.price}
+              date={parking.checkoutTime}
+              onClick={() => {}}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
 };
