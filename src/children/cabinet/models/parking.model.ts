@@ -2,11 +2,11 @@ export interface INotFinishedParking {
   carPlate: string;
   entryTime: Date;
   parkName: string;
+  price: number;
 }
 
 export interface IFinishedParking extends INotFinishedParking {
   checkoutTime: Date;
-  price: number;
 }
 
 export type IParking =
@@ -23,18 +23,17 @@ export const parkingModel = (
   plate: string,
   parkName: string,
   entryTime: Date,
+  price: number,
   checkoutTime?: Date,
-  price?: number,
 ): IParking => {
-  console.log(checkoutTime, price);
-  if (checkoutTime && price) {
+  if (checkoutTime) {
     return {
       carPlate: plate,
       entryTime: entryTime,
       parkName: parkName,
       isFinished: true,
       checkoutTime: checkoutTime,
-      price: price,
+      price,
     };
   }
 
@@ -43,5 +42,6 @@ export const parkingModel = (
     entryTime: entryTime,
     parkName: parkName,
     isFinished: false,
+    price,
   };
 };

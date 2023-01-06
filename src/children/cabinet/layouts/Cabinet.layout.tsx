@@ -22,7 +22,12 @@ export const CabinetLayout = () => {
           }}
         />
         <NavbarElement title={'Паркинги'} onClick={() => {}} />
-        <NavbarElement title={'Профиль'} onClick={() => {}} />
+        <NavbarElement
+          title={'Профиль'}
+          onClick={() => {
+            navigate('/cabinet/profile');
+          }}
+        />
       </Navbar>
       <div className={classes.wrapper}>
         <Outlet />

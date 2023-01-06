@@ -22,9 +22,11 @@ export const useParkings = () => {
         return parkingModel(
           dto.car,
           dto.park.description,
-          new Date(dto.entry_time),
-          new Date(dto.checkout_time),
-          dto.calculated_price ?? undefined,
+          new Date(dto.entry_time_utc),
+          parseInt(
+            dto.checkout_time_utc ? dto.calculated_price : dto.current_price,
+          ),
+          dto.checkout_time_utc ? new Date(dto.checkout_time_utc) : undefined,
         );
       });
     });

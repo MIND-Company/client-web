@@ -3,7 +3,10 @@ import { ParkingWidget, useHttp } from '@ermolaev/mind-ui';
 import { IParking } from '../../models/parking.model';
 import classes from './History.page.styles.module.css';
 
-export const HistoryPage: FC<{ parkings: IParking[] }> = ({ parkings }) => {
+export const HistoryPage: FC<{
+  parkings: IParking[];
+  toDetail: (id: string) => void;
+}> = ({ parkings, toDetail }) => {
   return (
     <div className={classes.wrapper}>
       {parkings.map((parking: IParking, index) => {
@@ -19,7 +22,7 @@ export const HistoryPage: FC<{ parkings: IParking[] }> = ({ parkings }) => {
               parkingName={parking.parkName}
               id={parking.price}
               date={parking.checkoutTime}
-              onClick={() => {}}
+              onClick={() => toDetail(parking.parkName)}
             />
           </div>
         );

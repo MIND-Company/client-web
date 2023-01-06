@@ -20,5 +20,5 @@ export const HistoryContainer = () => {
       });
   }, []);
 
-  return <HistoryPage parkings={parkings.value} />;
+  return <HistoryPage parkings={parkings.value} toDetail={() => {}} />;
 };

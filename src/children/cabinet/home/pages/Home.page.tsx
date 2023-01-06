@@ -1,11 +1,5 @@
 import React, { FC } from 'react';
-import { useLocation } from 'react-router-dom';
-import {
-  InfoWidget,
-  Loader,
-  LoaderWrapper,
-  ParkingWidget,
-} from '@ermolaev/mind-ui';
+import { InfoWidget, LoaderWrapper, ParkingWidget } from '@ermolaev/mind-ui';
 import { RulesComponent } from '../components/Rules.component';
 import classes from './Home.page.styles.module.css';
 import { IParking } from '../../models/parking.model';
@@ -26,7 +20,7 @@ export const HomePage: FC<IHomePageProps> = ({ lastParking }) => {
             size={'mini'}
             price={lastParking.price}
             id={lastParking.parkName}
-            date={lastParking.checkoutTime}
+            date={lastParking.entryTime}
             parkingName={lastParking.parkName}
             onClick={() => {}}
           />
@@ -35,7 +29,7 @@ export const HomePage: FC<IHomePageProps> = ({ lastParking }) => {
         {lastParking && !lastParking.isFinished && (
           <ParkingWidget
             size={'mini'}
-            price={882}
+            price={lastParking.price}
             id={lastParking.parkName}
             onClick={() => {}}
           />
