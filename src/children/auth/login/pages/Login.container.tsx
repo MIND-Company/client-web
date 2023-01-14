@@ -25,7 +25,7 @@ export const LoginContainer = () => {
   return (
     <LoginPage
       onSubmit={onSubmitHandler}
-      navigateToRegistration={() => navigate('/auth/registration')}
+      navigateToRegistration={() => navigate('/auth/register')}
     />
   );
 };

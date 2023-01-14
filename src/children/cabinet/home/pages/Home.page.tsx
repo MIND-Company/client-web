@@ -6,9 +6,10 @@ import { IParking } from '../../models/parking.model';
 
 interface IHomePageProps {
   lastParking: IParking | null;
+  carPlate: string;
 }
 
-export const HomePage: FC<IHomePageProps> = ({ lastParking }) => {
+export const HomePage: FC<IHomePageProps> = ({ lastParking, carPlate }) => {
   return (
     <div className={classes.wrapper}>
       <div className={classes.topWidgetWrapper}>
@@ -49,7 +50,7 @@ export const HomePage: FC<IHomePageProps> = ({ lastParking }) => {
             <InfoWidget
               size="mini"
               leftSideText="Ваш номер:"
-              rightSideText={'sdasdas'}
+              rightSideText={carPlate}
             />
           </LoaderWrapper>
         </div>

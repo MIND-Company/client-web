@@ -21,7 +21,12 @@ export const CabinetLayout = () => {
             navigate('/cabinet/history');
           }}
         />
-        <NavbarElement title={'Паркинги'} onClick={() => {}} />
+        <NavbarElement
+          title={'Паркинги'}
+          onClick={() => {
+            navigate('/cabinet/map');
+          }}
+        />
         <NavbarElement
           title={'Профиль'}
           onClick={() => {

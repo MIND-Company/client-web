@@ -12,7 +12,7 @@ export const ProfileContainer = () => {
     profileApi().then((res) => {
       setProfile(res);
     });
-  });
+  }, []);
 
   return (
     <div className={classes.wrapper}>
