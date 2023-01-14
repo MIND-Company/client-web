@@ -22,7 +22,7 @@ export const HistoryPage: FC<{
               parkingName={parking.parkName}
               id={parking.price}
               date={parking.checkoutTime}
-              onClick={() => toDetail(parking.parkName)}
+              onClick={() => toDetail(index.toString())}
             />
           </div>
         );

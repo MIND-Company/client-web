@@ -1,7 +1,7 @@
 import { HistoryPage } from './History.page';
 import { useParkings } from '../../hooks/parkings.hooks';
 import React, { useEffect } from 'react';
-import { useUpgradedState } from '@ermolaev/mind-ui';
+import { useStorage, useUpgradedState } from '@ermolaev/mind-ui';
 import { IParking } from '../../models/parking.model';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,16 +9,25 @@ export const HistoryContainer = () => {
   const parkingsApi = useParkings();
   const parkings = useUpgradedState<IParking[]>([]);
   const navigate = useNavigate();
+  const storage = useStorage();
 
   useEffect(() => {
     parkingsApi(20)
       .then((res) => {
         parkings.setValue(res);
+        storage.write('parkings', JSON.stringify(res));
       })
       .catch(() => {
         navigate('/auth/login');
       });
   }, []);
 
-  return <HistoryPage parkings={parkings.value} toDetail={() => {}} />;
+  return (
+    <HistoryPage
+      parkings={parkings.value}
+      toDetail={(index: string) => {
+        navigate('/cabinet/history/' + index);
+      }}
+    />
+  );
 };
