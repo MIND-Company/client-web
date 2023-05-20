@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sps-client/static/css/main.c22e2c60.css",
+    "main.js": "/sps-client/static/js/main.d79797ea.js",
+    "index.html": "/sps-client/index.html",
+    "main.c22e2c60.css.map": "/sps-client/static/css/main.c22e2c60.css.map",
+    "main.d79797ea.js.map": "/sps-client/static/js/main.d79797ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c22e2c60.css",
+    "static/js/main.d79797ea.js"
+  ]
+}
