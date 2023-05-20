@@ -6,7 +6,7 @@ import { IParking } from '../../models/parking.model';
 
 interface IHomePageProps {
   lastParking: IParking | null;
-  carPlate: string;
+  carPlate: string | null;
 }
 
 export const HomePage: FC<IHomePageProps> = ({ lastParking, carPlate }) => {
@@ -36,23 +36,31 @@ export const HomePage: FC<IHomePageProps> = ({ lastParking, carPlate }) => {
           />
         )}
 
-        {!lastParking && 'У вас еще нет паркингов'}
+        {!lastParking && (
+          <InfoWidget
+            size={'mini'}
+            leftSideText={'У вас еще нет паркингов'}
+            rightSideText={''}
+          />
+        )}
         <div className={classes.cardWrapper}>
           <InfoWidget
             size={'mini'}
             leftSideText="Ваша карта:"
             rightSideText="8480"
           />
-          <LoaderWrapper
-            isLoading={false}
-            elementSizes={{ widthCss: '434px', heightCss: '302px' }}
-          >
-            <InfoWidget
-              size="mini"
-              leftSideText="Ваш номер:"
-              rightSideText={carPlate}
-            />
-          </LoaderWrapper>
+          {carPlate && (
+            <LoaderWrapper
+              isLoading={false}
+              elementSizes={{ widthCss: '434px', heightCss: '302px' }}
+            >
+              <InfoWidget
+                size="mini"
+                leftSideText="Ваш номер:"
+                rightSideText={carPlate}
+              />
+            </LoaderWrapper>
+          )}
         </div>
       </div>
     </div>

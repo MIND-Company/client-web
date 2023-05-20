@@ -32,9 +32,12 @@ export const HomeContainer = () => {
       });
   }, []);
 
-  if (lastParkingState.value && car?.number) {
+  if (!lastParkingState.isLoading) {
     return (
-      <HomePage lastParking={lastParkingState.value} carPlate={car?.number} />
+      <HomePage
+        lastParking={lastParkingState.value}
+        carPlate={car?.number ?? null}
+      />
     );
   }
 
